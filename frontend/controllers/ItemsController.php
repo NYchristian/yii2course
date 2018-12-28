@@ -82,11 +82,11 @@ class ItemsController extends Controller
 
             if($model->save())
             {
-             if (!is_dir(Yii::getAlias('@root') .'/uploads/' . $model->item_name)){
-                 mkdir(Yii::getAlias('@root') .'/uploads/' . $model->item_name);
+             if (!is_dir(Yii::getAlias('@root') .'/uploads/' . $model->id)){
+                 mkdir(Yii::getAlias('@root') .'/uploads/' . $model->id);
 
              }
-              $file->saveAs( Yii::getAlias('@root') .'/uploads/' . $model->item_name .'/'. $file);
+              $file->saveAs( Yii::getAlias('@root') .'/uploads/' . $model->id .'/'. $file);
 
               return $this->redirect(['view', 'id' => $model->item_id]);
             }
